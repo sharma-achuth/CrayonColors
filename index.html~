@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="exprApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CrayonColors Code</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/paper/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <!-- jQuery library -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/app.js"></script>
+
+    <style>
+        .tear {
+            width: 130px;
+            height: 130px;
+            border-radius: 0 50% 50% 50%;
+            border: 3px solid rgba(0, 0, 0, 0.47);
+            transform: rotate(45deg);
+            margin: auto;
+            margin-top: -30px;
+        }
+       
+        
+        .hvr {
+            z-Index: 60;
+            position: relative;
+        }
+    </style>
+</head>
+
+<body ng-controller="exprCTRL">
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand " href="#"><b><i class="text-info">CrayonColors </i></b>&nbsp;<span class="fa fa-paint-brush"></span></a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+     
+      
+          </ul>
+        </li>
+      </ul>
+      
+      <ul class="nav navbar-nav navbar-right">
+          <li class="active"><a href="index.html"><span class="text-info">colours </span><span class="sr-only">(current)</span></a></li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="container">
+
+<div class="jumbotron">
+    <p><span class="text-primary h1 ">Usage Info :</span> </p>
+    <p class="text-default ">click on the scoops to get the info i.e, name, hex  & rgb value respectivly.</p> 
+  </div>
+
+        <div class="row">
+            <div class="container">
+           
+                <div class="col-md-6  " ng-repeat="clr in val">
+
+                    <div class="row ">
+                        <br> <br>
+                        <br><br>
+                        <br>
+
+                        <div ng-repeat="obj in clr ">
+                            <!--<p>name :{{obj.name}} hex val: {{obj.hex}} rgb val :{{obj.rgb}}</p>-->
+
+                            <div class="tear rem" style="background-color: {{obj.hex}}; " data-toggle="popover " title="" data-content="<span class='text-info h5' ><i class='fa fa-paint-brush' aria-hidden='true'></i> color code</span><hr><span class='text-primary'><i class='text-danger'>name: </i>{{obj.name}}<br> <i class='text-danger'  >hex:</i> {{obj.hex}}<br> <i class='text-danger'>rgb:</i>{{obj.rgb}}</span> ">
+                                <span class="text-default"> &nbsp; {{obj.hex}}</span>
+
+                            </div>
+
+                        </div>
+                        <br>
+                    </div>
+                </div>
+
+            </div>
+          
+        </div>
+        <hr>
+        <footer class="container-fluid text-center">
+  <a href="#top" title="To Top">
+    <span class="glyphicon glyphicon-chevron-up"></span>
+  </a>
+  <p> <b>CrayonColours by : </b><a >Sharma Achuth</a> <br><b>licence : </b><a>Apache licence 2</a></p>
+</footer>
+    </div>
+
+
+    <!--<div ng-repeat="clr in rama ">
+
+        {{$index}}
+        
+
+    </div>-->
+
+    <script>
+        $(document).ready(function() {
+                // alert(454);
+                $('[data-toggle="popover "]').popover({
+                    'html': true
+                });
+
+                $(".rem ").mouseover(function() {
+                    //   alert('over');
+                    $(this).addClass('hvr');
+
+                });
+
+                $(".rem ").mouseout(function() {
+                    //  alert('in');
+                    $('.rem').removeClass('hvr');
+
+                });
+            }
+
+        );
+    </script>
+
+</body>
+
+</html>
